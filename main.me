@@ -297,8 +297,8 @@ Me.load({
                     if (me.settings.compiler.hasPam) {
                         me.target.libraries.push('pam')
                     }
-                    cp(['${BIN}/self.key', '${BIN}/self.crt'], 'src')
-                    cp(['${BIN}/self.key', '${BIN}/self.crt'], 'test')
+                    cp(['certs/self.key', 'certs/self.crt'], 'src')
+                    cp(['certs/self.key', 'certs/self.crt'], 'test')
                 `,
             },
         },

@@ -637,30 +637,30 @@
 ../src/certs/samples/test.key
     			);
     			outputPaths = (
-    ../build/macosx-x64-static/bin/ca.crt,
-../build/macosx-x64-static/bin/ca.key,
-../build/macosx-x64-static/bin/ec.crt,
-../build/macosx-x64-static/bin/ec.key,
-../build/macosx-x64-static/bin/roots.crt,
-../build/macosx-x64-static/bin/self.crt,
-../build/macosx-x64-static/bin/self.key,
-../build/macosx-x64-static/bin/test.crt,
-../build/macosx-x64-static/bin/test.key
+    ../certs/ca.crt,
+../certs/ca.key,
+../certs/ec.crt,
+../certs/ec.key,
+../certs/roots.crt,
+../certs/self.crt,
+../certs/self.key,
+../certs/test.crt,
+../certs/test.key
     			);
     			runOnlyForDeploymentPostprocessing = 0;
     			shellPath = /bin/bash;
     			shellScript = "PATH=$PATH:/usr/local/bin
 cd ..
-	mkdir -p \"build/macosx-x64-static/bin\"
-	cp src/certs/samples/ca.crt build/macosx-x64-static/bin/ca.crt
-	cp src/certs/samples/ca.key build/macosx-x64-static/bin/ca.key
-	cp src/certs/samples/ec.crt build/macosx-x64-static/bin/ec.crt
-	cp src/certs/samples/ec.key build/macosx-x64-static/bin/ec.key
-	cp src/certs/samples/roots.crt build/macosx-x64-static/bin/roots.crt
-	cp src/certs/samples/self.crt build/macosx-x64-static/bin/self.crt
-	cp src/certs/samples/self.key build/macosx-x64-static/bin/self.key
-	cp src/certs/samples/test.crt build/macosx-x64-static/bin/test.crt
-	cp src/certs/samples/test.key build/macosx-x64-static/bin/test.key
+	mkdir -p \"certs\"
+	cp src/certs/samples/ca.crt certs/ca.crt
+	cp src/certs/samples/ca.key certs/ca.key
+	cp src/certs/samples/ec.crt certs/ec.crt
+	cp src/certs/samples/ec.key certs/ec.key
+	cp src/certs/samples/roots.crt certs/roots.crt
+	cp src/certs/samples/self.crt certs/self.crt
+	cp src/certs/samples/self.key certs/self.key
+	cp src/certs/samples/test.crt certs/test.crt
+	cp src/certs/samples/test.key certs/test.key
 ";
     		};
 		DF81C6ECDF81D8A000000016 /* ShellScript for Prep */ = {
@@ -1263,7 +1263,7 @@ ENABLE_TESTABILITY = YES;
 		DF81C6ECDF81D8A0000000B5 /* Debug */ = {
     			isa = XCBuildConfiguration;
     			buildSettings = {
-    				PRODUCT_NAME = install-certs;
+    				PRODUCT_NAME = certs;
     
     				GCC_PREPROCESSOR_DEFINITIONS = (
 					"ME_DEBUG=1",
@@ -1279,7 +1279,7 @@ ENABLE_TESTABILITY = YES;
     		DF81C6ECDF81D8A0000000B6 /* Release */ = {
     			isa = XCBuildConfiguration;
     			buildSettings = {
-    				PRODUCT_NAME = install-certs;
+    				PRODUCT_NAME = certs;
     
     				GCC_PREPROCESSOR_DEFINITIONS = (
 					"ME_DEBUG=0",

@@ -3,7 +3,7 @@
 #
 
 NAME                  := goahead
-VERSION               := 5.2.0
+VERSION               := 5.2.1
 PROFILE               ?= static
 ARCH                  ?= $(shell echo $(WIND_HOST_TYPE) | sed 's/-.*$(ME_ROOT_PREFIX)/')
 CPU                   ?= $(subst X86,PENTIUM,$(shell echo $(ARCH) | tr a-z A-Z))
@@ -139,7 +139,7 @@ ME_ROM                ?= 0
 ME_ROM_TIME           ?= 1505449519432
 ME_STATIC             ?= 1
 ME_TITLE              ?= \"Embedthis GoAhead\"
-ME_VERSION            ?= \"5.2.0\"
+ME_VERSION            ?= \"5.2.1\"
 
 export PATH           := $(WIND_GNU_PATH)/$(WIND_HOST_TYPE)/bin:$(PATH)
 CFLAGS                += -fno-builtin -fno-defer-pop -fvolatile -w
@@ -244,7 +244,7 @@ clean:
 	rm -f "$(BUILD)/bin/goahead.out"
 	rm -f "$(BUILD)/bin/goahead-test.out"
 	rm -f "$(BUILD)/bin/gopass.out"
-	rm -f "$(BUILD)/.install-certs-modified"
+	rm -f ".install-certs-modified"
 	rm -f "$(BUILD)/bin/libgo.a"
 	rm -f "$(BUILD)/bin/libgoahead-mbedtls.a"
 	rm -f "$(BUILD)/bin/libmbedtls.a"
@@ -693,25 +693,25 @@ DEPS_42 += src/certs/samples/self.key
 DEPS_42 += src/certs/samples/test.crt
 DEPS_42 += src/certs/samples/test.key
 
-$(BUILD)/.install-certs-modified: $(DEPS_42)
-	@echo '      [Copy] $(BUILD)/bin'
-	mkdir -p "$(BUILD)/bin"
-	cp src/certs/samples/ca.crt $(BUILD)/bin/ca.crt
-	cp src/certs/samples/ca.key $(BUILD)/bin/ca.key
-	cp src/certs/samples/ec.crt $(BUILD)/bin/ec.crt
-	cp src/certs/samples/ec.key $(BUILD)/bin/ec.key
-	cp src/certs/samples/roots.crt $(BUILD)/bin/roots.crt
-	cp src/certs/samples/self.crt $(BUILD)/bin/self.crt
-	cp src/certs/samples/self.key $(BUILD)/bin/self.key
-	cp src/certs/samples/test.crt $(BUILD)/bin/test.crt
-	cp src/certs/samples/test.key $(BUILD)/bin/test.key
-	touch "$(BUILD)/.install-certs-modified"
+.install-certs-modified: $(DEPS_42)
+	@echo '      [Copy] certs'
+	mkdir -p "certs"
+	cp src/certs/samples/ca.crt certs/ca.crt
+	cp src/certs/samples/ca.key certs/ca.key
+	cp src/certs/samples/ec.crt certs/ec.crt
+	cp src/certs/samples/ec.key certs/ec.key
+	cp src/certs/samples/roots.crt certs/roots.crt
+	cp src/certs/samples/self.crt certs/self.crt
+	cp src/certs/samples/self.key certs/self.key
+	cp src/certs/samples/test.crt certs/test.crt
+	cp src/certs/samples/test.key certs/test.key
+	touch ".install-certs-modified"
 
 #
 #   goahead
 #
 DEPS_43 += $(BUILD)/bin/libgo.a
-DEPS_43 += $(BUILD)/.install-certs-modified
+DEPS_43 += .install-certs-modified
 DEPS_43 += $(BUILD)/inc/goahead.h
 DEPS_43 += $(BUILD)/inc/js.h
 DEPS_43 += $(BUILD)/obj/goahead.o
@@ -754,7 +754,7 @@ $(BUILD)/bin/goahead.out: $(DEPS_43)
 #   goahead-test
 #
 DEPS_44 += $(BUILD)/bin/libgo.a
-DEPS_44 += $(BUILD)/.install-certs-modified
+DEPS_44 += .install-certs-modified
 DEPS_44 += $(BUILD)/obj/test.o
 
 ifeq ($(ME_COM_MBEDTLS),1)

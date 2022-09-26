@@ -19,7 +19,7 @@ Me.load({
                     if (me.settings.hasPam) {
                         me.target.libraries.push('pam')
                     }                                                                                      
-                    cp(['${BIN}/self.key', '${BIN}/self.crt'], '.')
+                    cp(['../certs/self.key', '../certs/self.crt'], '.')
                 `,  
             },
         },

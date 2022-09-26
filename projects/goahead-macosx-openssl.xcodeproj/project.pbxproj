@@ -524,30 +524,30 @@
 ../src/certs/samples/test.key
     			);
     			outputPaths = (
-    ../build/macosx-x64-openssl/bin/ca.crt,
-../build/macosx-x64-openssl/bin/ca.key,
-../build/macosx-x64-openssl/bin/ec.crt,
-../build/macosx-x64-openssl/bin/ec.key,
-../build/macosx-x64-openssl/bin/roots.crt,
-../build/macosx-x64-openssl/bin/self.crt,
-../build/macosx-x64-openssl/bin/self.key,
-../build/macosx-x64-openssl/bin/test.crt,
-../build/macosx-x64-openssl/bin/test.key
+    ../certs/ca.crt,
+../certs/ca.key,
+../certs/ec.crt,
+../certs/ec.key,
+../certs/roots.crt,
+../certs/self.crt,
+../certs/self.key,
+../certs/test.crt,
+../certs/test.key
     			);
     			runOnlyForDeploymentPostprocessing = 0;
     			shellPath = /bin/bash;
     			shellScript = "PATH=$PATH:/usr/local/bin
 cd ..
-	mkdir -p \"build/macosx-x64-openssl/bin\"
-	cp src/certs/samples/ca.crt build/macosx-x64-openssl/bin/ca.crt
-	cp src/certs/samples/ca.key build/macosx-x64-openssl/bin/ca.key
-	cp src/certs/samples/ec.crt build/macosx-x64-openssl/bin/ec.crt
-	cp src/certs/samples/ec.key build/macosx-x64-openssl/bin/ec.key
-	cp src/certs/samples/roots.crt build/macosx-x64-openssl/bin/roots.crt
-	cp src/certs/samples/self.crt build/macosx-x64-openssl/bin/self.crt
-	cp src/certs/samples/self.key build/macosx-x64-openssl/bin/self.key
-	cp src/certs/samples/test.crt build/macosx-x64-openssl/bin/test.crt
-	cp src/certs/samples/test.key build/macosx-x64-openssl/bin/test.key
+	mkdir -p \"certs\"
+	cp src/certs/samples/ca.crt certs/ca.crt
+	cp src/certs/samples/ca.key certs/ca.key
+	cp src/certs/samples/ec.crt certs/ec.crt
+	cp src/certs/samples/ec.key certs/ec.key
+	cp src/certs/samples/roots.crt certs/roots.crt
+	cp src/certs/samples/self.crt certs/self.crt
+	cp src/certs/samples/self.key certs/self.key
+	cp src/certs/samples/test.crt certs/test.crt
+	cp src/certs/samples/test.key certs/test.key
 ";
     		};
 		8DC96D8E8DC9813200000015 /* ShellScript for Prep */ = {
@@ -1148,7 +1148,7 @@ ENABLE_TESTABILITY = YES;
 		8DC96D8E8DC9813200000095 /* Debug */ = {
     			isa = XCBuildConfiguration;
     			buildSettings = {
-    				PRODUCT_NAME = install-certs;
+    				PRODUCT_NAME = certs;
     
     				GCC_PREPROCESSOR_DEFINITIONS = (
 					"ME_DEBUG=1",
@@ -1160,7 +1160,7 @@ ENABLE_TESTABILITY = YES;
     		8DC96D8E8DC9813200000096 /* Release */ = {
     			isa = XCBuildConfiguration;
     			buildSettings = {
-    				PRODUCT_NAME = install-certs;
+    				PRODUCT_NAME = certs;
     
     				GCC_PREPROCESSOR_DEFINITIONS = (
 					"ME_DEBUG=0",

@@ -13,3 +13,4 @@ test/web/tmp/a.dat
 /projects/goahead-core*
 .local.mk
 .version
+certs/
